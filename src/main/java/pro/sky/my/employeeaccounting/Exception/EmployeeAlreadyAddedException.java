@@ -1,7 +1,7 @@
 package pro.sky.my.employeeaccounting.Exception;
 
 public class EmployeeAlreadyAddedException extends RuntimeException {
-    EmployeeAlreadyAddedException() {
+    public EmployeeAlreadyAddedException() {
         super("Уже есть такой сотрудник");
     }
 }

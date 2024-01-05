@@ -8,7 +8,6 @@ public class Employee {
     private final String surname;
 
     public Employee(String firstName, String surname) {
-
         this.firstName = firstName;
         this.surname = surname;
     }
