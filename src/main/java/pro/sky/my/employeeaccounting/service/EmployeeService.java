@@ -18,35 +18,34 @@ public class EmployeeService {
             new Employee("Ози", "Озберн")
     ));
 
-    public String addEmloyee(String firstName, String surname) {
+    public Employee addEmloyee(String firstName, String surname) {
         Employee employee = new Employee(firstName, surname);
 
         if (employeeList.size() >= MAX_POSSIBLE_EMPLOYEES) {
-            throw new EmployeeStorageIsFullException();
+            throw new EmployeeStorageIsFullException("Превышен лимит количества сотрудников в фирме");
         } else if (employeeList.contains(employee)) {
-            throw new EmployeeAlreadyAddedException();
+            throw new EmployeeAlreadyAddedException(String.format("Сотрудник %s уже есть в книге учета сотрудников!", employee));
         } else {
             employeeList.add(employee);
-            return "Сотрудник добавлен!";
+            return employee;
         }
     }
 
-    public String delEmloyee(String firstName, String surname) {
+    public Employee removeEmloyee(String firstName, String surname) {
         Employee employee = new Employee(firstName, surname);
             if (employeeList.remove((Employee) employee)) {
-                return String.format("Сотрудник %s был удалён из книги сотрудников!", employee);
+                return employee;
             } else {
                 throw new EmployeeNotFoundException(String.format("Сотрудник %s не найден!", employee));
             }
     }
 
-    public String findEmloyee(String firstName, String surname) {
+    public Employee findEmloyee(String firstName, String surname) {
         Employee employee = new Employee(firstName, surname);
-
         if (!employeeList.contains(employee)) {
             throw new EmployeeNotFoundException(String.format("Сотрудник %s не найден!", employee));
         } else {
-            return String.format("Сотрудник %s найден!", employee);
+            return employee;
         }
     }
 }
