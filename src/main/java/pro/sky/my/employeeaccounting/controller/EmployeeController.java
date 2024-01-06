@@ -39,5 +39,5 @@ public class EmployeeController {
     @GetMapping("/list")
     public List<Employee> returnListOfEmployee(){
         return employeeService.getEmployeeList();
-    };
+    }
 }
