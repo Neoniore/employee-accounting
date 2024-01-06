@@ -17,7 +17,7 @@ public class Employee {
         return firstName;
     }
 
-    public String getSurname() {
+    public String getLastName() {
         return lastName;
     }
 

@@ -15,11 +15,11 @@ public class EmployeeService {
     private final int MAX_POSSIBLE_EMPLOYEES = 10;
     List<Employee> employeeList = new ArrayList<>(List.of(
             new Employee("Александр", "Панченко"),
-            new Employee("Ози", "Озберн")
+            new Employee("Ози", "Осборн")
     ));
 
-    public Employee addEmloyee(String firstName, String surname) {
-        Employee employee = new Employee(firstName, surname);
+    public Employee addEmloyee(String firstName, String lastName) {
+        Employee employee = new Employee(firstName, lastName);
 
         if (employeeList.size() >= MAX_POSSIBLE_EMPLOYEES) {
             throw new EmployeeStorageIsFullException("Превышен лимит количества сотрудников в фирме");
@@ -31,8 +31,8 @@ public class EmployeeService {
         }
     }
 
-    public Employee removeEmloyee(String firstName, String surname) {
-        Employee employee = new Employee(firstName, surname);
+    public Employee removeEmloyee(String firstName, String lastName) {
+        Employee employee = new Employee(firstName, lastName);
             if (employeeList.remove((Employee) employee)) {
                 return employee;
             } else {
@@ -40,12 +40,16 @@ public class EmployeeService {
             }
     }
 
-    public Employee findEmloyee(String firstName, String surname) {
-        Employee employee = new Employee(firstName, surname);
+    public Employee findEmloyee(String firstName, String lastName) {
+        Employee employee = new Employee(firstName, lastName);
         if (!employeeList.contains(employee)) {
             throw new EmployeeNotFoundException(String.format("Сотрудник %s не найден!", employee));
         } else {
             return employee;
         }
+    }
+
+    public List<Employee> getEmployeeList() {
+        return employeeList;
     }
 }
