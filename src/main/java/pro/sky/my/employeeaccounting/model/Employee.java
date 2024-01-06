@@ -1,4 +1,4 @@
-package pro.sky.my.employeeaccounting;
+package pro.sky.my.employeeaccounting.model;
 
 import java.util.Objects;
 

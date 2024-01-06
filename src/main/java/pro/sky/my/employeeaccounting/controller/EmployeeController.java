@@ -1,8 +1,8 @@
 package pro.sky.my.employeeaccounting.controller;
 
 import org.springframework.web.bind.annotation.*;
-import pro.sky.my.employeeaccounting.Employee;
-import pro.sky.my.employeeaccounting.service.EmployeeService;
+import pro.sky.my.employeeaccounting.model.Employee;
+import pro.sky.my.employeeaccounting.service.EmployeeServiceImpl;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import java.util.List;
 @RequestMapping("/employee")
 public class EmployeeController {
 
-    EmployeeService employeeService;
+    EmployeeServiceImpl employeeService;
 
-    EmployeeController(EmployeeService employeeService) {
+    EmployeeController(EmployeeServiceImpl employeeService) {
         this.employeeService = employeeService;
     }
 
