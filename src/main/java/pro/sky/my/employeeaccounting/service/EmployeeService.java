@@ -2,8 +2,11 @@ package pro.sky.my.employeeaccounting.service;
 
 import pro.sky.my.employeeaccounting.model.Employee;
 
+import java.util.List;
+
 public interface EmployeeService {
     Employee addEmloyee(String firstName, String lastName);
     Employee removeEmloyee(String firstName, String lastName);
     Employee findEmloyee(String firstName, String lastName);
+    List<Employee> getEmployeeList();
 }
