@@ -21,7 +21,6 @@ public class Employee {
         return lastName;
     }
 
-
     @Override
     public String toString() {
         return String.format("Имя: %s, Фамилия: %s", firstName, lastName);
